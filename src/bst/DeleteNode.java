@@ -14,8 +14,7 @@ public class DeleteNode {
 		root.right.right.right = new TreeNode(10);
 		TreeNode root1 = new TreeNode(1);
 		root1.right = new TreeNode(2);
-		TreeNode result = new DeleteNode().deleteNode(root, 3);
-		System.out.print(result);
+		new DeleteNode().deleteNode(root, 3);
 	}
 	
 	public TreeNode deleteNode(TreeNode root, int key) {

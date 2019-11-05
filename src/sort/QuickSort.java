@@ -4,12 +4,14 @@ public class QuickSort {
 	
 	public static void main(String[] args) {
 		int[] input = new int[] {3,6,2,1,7,5};
-		new QuickSort().sortArr(input);
+		new QuickSort().sortArray(input);
 	}
-	public int[] sortArr(int[] input) {
+	
+	public int[] sortArray(int[] input) {
 		quickSort(0, input.length-1, input);
 		return input;
 	}
+	
 	private void quickSort(int start, int end, int[] input) {
 		if(start > end) {
 			return;
@@ -18,6 +20,7 @@ public class QuickSort {
 		quickSort(start, pivotIndex-1, input);
 		quickSort(pivotIndex+1, end, input);
 	}
+	
 	private int getPivot(int start, int end, int[] input) {
 		int pivot = input[end];
 		int index = start-1;
