@@ -38,7 +38,7 @@ public class MinStack {
     	}
     	stack[index] = x;
     	index++;
-    	if(min > x) {
+    	if(this.min > x) {
     		this.min = x;
     	}
     }
