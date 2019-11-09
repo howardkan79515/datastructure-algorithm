@@ -13,7 +13,7 @@ public class LinkedListCycle {
 		head.next.next = new ListNode(0);
 		head.next.next.next =  new ListNode(4);
 		head.next.next.next.next = head.next;
-		new LinkedListCycle().hasCycle(head);
+		new LinkedListCycle().solvedWithTwoPointer(head);
 	}
 	
 	public boolean hasCycle(ListNode head) {
@@ -28,7 +28,7 @@ public class LinkedListCycle {
 		return false;
 	}
 	
-	public boolean solvedWithTwoPointer(ListNode head) {
+	public boolean solveWithTwoPointer(ListNode head) {
 		if(head == null || head.next == null) {
 			return false;
 		}
