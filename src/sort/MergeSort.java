@@ -5,7 +5,8 @@ import java.util.Arrays;
 public class MergeSort {
 	
 	public static void main(String[] args) {
-		int[] input = new int[] {3,6,2,1,7,5};
+		//int[] input = new int[] {3,6,2,1,7,5};
+		int[] input = new int[] {5,1,1,2,0,0};
 		new MergeSort().sort(input);
 	}
 	
@@ -34,7 +35,7 @@ public class MergeSort {
 				result[i] = right[rightIndex];
 				rightIndex++;
 			} else {
-				result[i] = result[leftIndex];
+				result[i] = left[leftIndex];
 				leftIndex++;
 			}
 			i++;
