@@ -16,6 +16,7 @@ public class QuickSort {
 		if(start > end) {
 			return;
 		}
+
 		int pivotIndex = getPivot(start, end, input);
 		quickSort(start, pivotIndex-1, input);
 		quickSort(pivotIndex+1, end, input);
