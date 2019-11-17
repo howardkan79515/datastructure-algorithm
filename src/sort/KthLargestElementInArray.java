@@ -36,8 +36,6 @@ public class KthLargestElementInArray {
 				nums[index] = nums[i];
 				nums[i] = val;
 				index++;
-			} else {
-				continue;
 			}
 		}
 		int val = nums[index];
