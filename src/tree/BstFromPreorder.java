@@ -7,11 +7,11 @@ public class BstFromPreorder {
 	}
 		
 	public TreeNode bstFromPreorder(int[] preorder) {
-		TreeNode result = getTree(preorder, 0, preorder.length-1);		
+		TreeNode result = buildTree(preorder, 0, preorder.length-1);		
 		return result;
     }
 	
-	private TreeNode getTree(int[] nums, int start, int end) {
+	private TreeNode buildTree(int[] nums, int start, int end) {
 		if(start > end) {
 			return null;
 		}
@@ -26,8 +26,8 @@ public class BstFromPreorder {
 			}
 		}
 		TreeNode treeNode = new TreeNode(val);
-		treeNode.left = getTree(nums, start+1, left);
-		treeNode.right = getTree(nums, left+1, right);
+		treeNode.left = buildTree(nums, start+1, left);
+		treeNode.right = buildTree(nums, left+1, right);
 		return treeNode;		
 	}
 
