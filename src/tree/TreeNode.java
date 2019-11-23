@@ -1,4 +1,4 @@
-package bst;
+package tree;
 
 public class TreeNode {
 	int val;
