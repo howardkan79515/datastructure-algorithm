@@ -2,7 +2,7 @@ package heap;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -13,11 +13,11 @@ import java.util.PriorityQueue;
 public class TopKFrequentWords {
 
 	public static void main(String[] args) {
-//		new TopKFrequentWords().topKFrequent(
-//				new String[] {"a","aa","aaa"}, 2);
-//		new TopKFrequentWords().topKFrequent(
-//				new String[] {"the", "day", "is", "sunny", "the", 
-//						"the", "the", "sunny", "is", "is"}, 4);
+		new TopKFrequentWords().topKFrequent(
+				new String[] {"a","aa","aaa"}, 2);
+		new TopKFrequentWords().topKFrequent(
+				new String[] {"the", "day", "is", "sunny", "the", 
+						"the", "the", "sunny", "is", "is"}, 4);
 		new TopKFrequentWords().topKFrequent(
 				new String[] {"i", "love", "leetcode", "i", "love", "coding"}, 2);
 			
@@ -42,14 +42,10 @@ public class TopKFrequentWords {
 			priorityQueue.offer(entry);
 		}
 		List<String> result = new ArrayList<>(k);
-		int size = priorityQueue.size();
 		for(int i = 0 ; i < k ; i++) {
 			String string = priorityQueue.poll().getKey();
-			
-				result.add(string);
-			
+			result.add(string);			
 		}
-		//Collections.reverse(result);
 		return result;
 
 	}
