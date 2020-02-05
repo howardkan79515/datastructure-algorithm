@@ -12,9 +12,7 @@ public class CombinationSum {
 	}
 	
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
-		
-		calSum(candidates, target, new ArrayList<>(), 0, 0);
-		
+		calSum(candidates, target, new ArrayList<>(), 0, 0);		
 		return result;
         
     }
