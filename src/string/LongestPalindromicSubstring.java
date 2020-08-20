@@ -3,7 +3,7 @@ package string;
 public class LongestPalindromicSubstring {
 	
 	public static void main(String[] args) {
-		//new LongestPalindromicSubstring().longestPalindrome("cbbd");
+		new LongestPalindromicSubstring().longestPalindrome("cbbd");
 		new LongestPalindromicSubstring().longestPalindrome("babcb");
 	}
 	String result = "";
