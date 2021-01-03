@@ -24,7 +24,7 @@ public class MinStack {
 	
 	int index;
 	
-	int min;
+	int min ;
 	
 	public MinStack() {
 		this.stack = new int[10];     
