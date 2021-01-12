@@ -2,11 +2,11 @@ package dfs;
 
 
 public class NumberOfIslands {
-	
+
 	public static void main(String[] args) {
 		char[][] array = new char[][]{
-		  	{'1','1','0','0','0'},
-		  	{'1','1','0','0','0'},
+			{'1','1','0','0','0'},
+			{'1','1','0','0','0'},
 			{'0','0','1','0','0'},
 			{'0','0','0','1','1'}
 		};
@@ -23,9 +23,9 @@ public class NumberOfIslands {
 			}
 		}
 		return result;
-        
-    }
-	
+
+	}
+
 	private int dfs(char[][] array, int x, int y) {
 		if(over(array, x, y) || array[x][y] == '0') {
 			return 0;
@@ -37,14 +37,14 @@ public class NumberOfIslands {
 		dfs(array, x, y-1);
 		return 1;		
 	}
-	
+
 	private boolean over(char[][] array, int x, int y) {
 		if(x < 0 || y < 0 || x >= array.length || y >= array[0].length) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	class Index {
 		int x;
 		int y;		
@@ -52,19 +52,19 @@ public class NumberOfIslands {
 			this.x = x;
 			this.y = y;
 		}
-		
+
 		@Override
-	    public boolean equals(Object that) {
-	        if(that instanceof Index) {
-	        	Index p = (Index) that;
-	            return this.x == p.x && this.y == p.y;
-	        }
-	        return false;
-	    }
-		
+		public boolean equals(Object that) {
+			if(that instanceof Index) {
+				Index p = (Index) that;
+				return this.x == p.x && this.y == p.y;
+			}
+			return false;
+		}
+
 		@Override
-	    public int hashCode() {
-	        return 41 * (41 + x) + y;
-	    }
+		public int hashCode() {
+			return 41 * (41 + x) + y;
+		}
 	}
 }
