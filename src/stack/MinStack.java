@@ -4,69 +4,52 @@ import java.util.Arrays;
 
 public class MinStack {
 	
-	public static void main(String[] args) {
-		MinStack stack = new MinStack();
-		stack.push(2);
-		stack.push(1);
-		stack.push(3);
-		stack.pop();
-		stack.top();
-		stack.push(0);
-		stack.getMin();
-		stack.pop();
-		stack.getMin();
-		stack.pop();
-		int min = stack.getMin();		
-		System.out.print(min);
-	}
-	
 	int[] stack;
-	
-	int index;
-	
-	int min ;
-	
-	public MinStack() {
-		this.stack = new int[10];     
-		this.min = Integer.MAX_VALUE;
-		this.index = 0;
+    
+    int min = Integer.MAX_VALUE;
+    
+    int index = -1;
+
+    /** initialize your data structure here. */
+    public MinStack() {
+        this.stack = new int[10];
     }
     
+    //Time complexity O(1)
     public void push(int x) {
-    	if(index == stack.length) {
-    		this.stack = Arrays.copyOf(stack, stack.length*2);
-    	}
-    	stack[index] = x;
-    	index++;
-    	if(this.min > x) {
-    		this.min = x;
-    	}
+        if(x < min) {
+            min = x;
+        }
+        index++;
+        if(index > stack.length-1){
+            stack = Arrays.copyOf(stack, stack.length*2);
+        }
+        stack[index] = x;       
     }
     
+    //Time complexity O(N)
     public void pop() {
-    	index--;
-    	if(this.min == stack[index]) {
-    		updateMin();
-    	}
-    	stack[index] = 0;
+        stack[index] = 0;
+        index--;
+        setMin();
     }
 
-	private void updateMin() {
-		int min = Integer.MAX_VALUE;
-    	for(int i = 0 ; i < index ; i++) {
-    		if(stack[i] < min ) {
-    			min = stack[i];
-    		}
-    	}
-    	this.min = min;
+	private void setMin() {
+		this.min = Integer.MAX_VALUE;
+        for(int i = 0 ; i <= index ; i++) {
+            if(stack[i] < min) {
+                min = stack[i];
+            }
+        }
 	}
     
     public int top() {
-    	return stack[index-1];   
+        return stack[index];
     }
     
+    //Time complexity O(1)
     public int getMin() {
-    	return this.min;
+        return this.min;
     }
 
 }
