@@ -32,10 +32,7 @@ public class WordLadder {
                         StringBuilder sb = new StringBuilder(s);
                         sb.setCharAt(i, k);
                         String replace = sb.toString();
-                        //System.out.println("replace:"+replace);
-                        //System.out.println("sb:"+sb.toString());
                         if (table.contains(replace) && !visited.contains(replace)) {
-                            //System.out.println("queue:"+replace);
                             q.add(replace);
                             visited.add(replace);
                         }
