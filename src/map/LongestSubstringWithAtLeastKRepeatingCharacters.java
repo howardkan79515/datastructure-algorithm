@@ -36,14 +36,10 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
             this.max = Math.max(this.max, s.length());
             return;
         }
-        List<String> segments = new ArrayList<>();
         StringBuilder currentSegment = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (less.contains(c)) {
-                if (currentSegment.length() != 0) {
-                    segments.add(currentSegment.toString());
-                }
                 dfs(currentSegment.toString(), k);
                 currentSegment = new StringBuilder();
             } else {
