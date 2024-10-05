@@ -20,18 +20,7 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
         if (s.length() == 0) {
             return;
         }
-        Set<Character> less = new HashSet<>();
-        Map<Character, Integer> map = new HashMap<>();
-        for (int j = 0; j < s.length(); j++) {
-            char c = s.charAt(j);
-            int freq = map.computeIfAbsent(c, key -> 0);
-            map.put(c, freq+1);
-            if (freq+1 < k) {
-                less.add(c);
-            } else {
-                less.remove(c);
-            }
-        }
+        Set<Character> less = calLessThanKChars(s, k);
         if (less.isEmpty()) {
             this.max = Math.max(this.max, s.length());
             return;
@@ -47,6 +36,22 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
             }
         }
         dfs(currentSegment.toString(), k);
+    }
+
+    private Set<Character> calLessThanKChars(String s, int k) {
+        Set<Character> less = new HashSet<>();
+        Map<Character, Integer> map = new HashMap<>();
+        for (int j = 0; j < s.length(); j++) {
+            char c = s.charAt(j);
+            int freq = map.computeIfAbsent(c, key -> 0);
+            map.put(c, freq+1);
+            if (freq+1 < k) {
+                less.add(c);
+            } else {
+                less.remove(c);
+            }
+        }
+        return less;
     }
 
 
