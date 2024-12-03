@@ -6,37 +6,29 @@ public class FloodFill {
 		new FloodFill().floodFill(new int[][]{{0,0,0},{0,1,1}},
 				1, 1, 1);
 	}
-	
-	public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-		int origColor = image[sr][sc];
-		if(origColor == newColor) {
-			return image;
-		}
-		fill(origColor, newColor, image, sr, sc);
-		return image;       
-    }
-	
-	private void fill(int origColor, int newColor, int[][] image, int sr, int sc) {
-		if(isOver(image, sr, sc)) {
-			return;
-		}
-		if(image[sr][sc] != origColor) {
-			return;
-		}
-		image[sr][sc] = newColor;
-		fill(origColor, newColor, image, sr+1, sc);
-		fill(origColor, newColor, image, sr-1, sc);
-		fill(origColor, newColor, image, sr, sc+1);
-		fill(origColor, newColor, image, sr, sc-1);
+
+	public int[][] floodFill(int[][] image, int sr, int sc, int color) {
+		cache = new int[image.length][image[0].length];
+		int target = image[sr][sc];
+		dfs(image, sr, sc, color, target);
+		return image;
 	}
-	
-	private boolean isOver(int[][] image, int sr, int sc) {
-		int x = image.length;
-		int y = image[0].length;
-		if(sr >= x || sc >= y || sr < 0 || sc < 0) {
-			return true;
+
+	int[][] cache;
+
+	private void dfs(int[][] image, int sr, int sc, int color, int target) {
+		if (sr > image.length-1 || sc > image[0].length-1 || sr < 0 || sc < 0) {
+			return;
 		}
-		return false;	
+		if (image[sr][sc] != target || cache[sr][sc] == 1) {
+			return;
+		}
+		image[sr][sc] = color;
+		cache[sr][sc] = 1;
+		dfs(image, sr+1, sc, color, target);
+		dfs(image, sr, sc+1, color, target);
+		dfs(image, sr-1, sc, color, target);
+		dfs(image, sr, sc-1, color, target);
 	}
 
 }
