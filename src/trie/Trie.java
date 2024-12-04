@@ -9,6 +9,7 @@ public class Trie {
 	   trie.insert("apple");
 	   trie.insert("app");
 	   trie.search("app");
+
    }
 
 	public Trie() {
