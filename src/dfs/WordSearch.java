@@ -3,20 +3,9 @@ package dfs;
 public class WordSearch {
 
 	public static void main(String[] args) {
-		//		[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
-		//				"ABCCED"
-		//		[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
-		//				"SEE"
-		//		[["a","b"],["c","d"]]
-		//				"cdba"
-		//		[["A","B","C","E"],
-		//		 ["S","F","E","S"],
-		//		 ["A","D","E","E"]]
-		//				"ABCESEEEFS"
 		char[][] board = new char[][]{{'A','B','C','E'},
 			{'S','F','E','S'},
 			{'A','D','E','E'}};
-			//char[][] board2 = new char[][]{{'a','b'},{'c','d'}};
 			new WordSearch().exist(board, "ABCEFSADEESE");
 	}
 
