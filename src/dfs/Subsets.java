@@ -27,6 +27,5 @@ public class Subsets {
         dfs(nums, i, list);
         list.remove(list.size()-1);
         dfs(nums, i, list);
-        System.out.println("i:"+i);
     }
 }
