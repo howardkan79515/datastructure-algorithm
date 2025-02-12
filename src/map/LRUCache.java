@@ -3,8 +3,6 @@ package map;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 public class LRUCache {
 	
@@ -17,39 +15,34 @@ public class LRUCache {
 		cache.put(1, 2);
 		cache.get(1);
 		cache.get(2);
-		for (Map.Entry<Integer, Integer> e : cache.getEntry()) {
-			System.out.println(e.getKey());
-		}
 	}
-	
-	public Set<Entry<Integer, Integer>> getEntry() {
-		return this.cache.entrySet();
-	}
-	
-	private Map<Integer, Integer> cache;
-	
-	private int capacity;
-	
+
+	Map<Integer, Integer> cache;
+
+	int capacity;
+
 	public LRUCache(int capacity) {
+		this.cache = new LinkedHashMap<>(capacity, .75f, true);
 		this.capacity = capacity;
-		this.cache = new LinkedHashMap<>(capacity, 0.75f, true);
-    }
-    
-    public int get(int key) {
-    	int result = this.cache.get(key) == null ? -1 :
-    		this.cache.get(key);
-		return result;        
-    }
-    
-    public void put(int key, int value) {
-    	if(this.cache.size() >= this.capacity && 
-    	  !this.cache.containsKey(key)) {
-    		for (Map.Entry<Integer, Integer> e : cache.entrySet()) {
-    			cache.remove(e.getKey());
-    			break;
-    		}
-    	}
-        this.cache.put(key, value);
-    }
+	}
+
+	public int get(int key) {
+		if (cache.containsKey(key)) {
+			return cache.get(key);
+		}
+		return -1;
+	}
+
+	public void put(int key, int value) {
+		if (cache.size() >= capacity) {
+			if (!cache.containsKey(key)) {
+				for (Map.Entry<Integer, Integer> entry : cache.entrySet()) {
+					cache.remove(entry.getKey());
+					break;
+				}
+			}
+		}
+		cache.put(key, value);
+	}
 
 }
